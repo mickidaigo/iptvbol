@@ -1,13 +1,10 @@
 import requests
 import re
 
-CANALES_BOL = {
+CANALES_ATB = {
     "ATB La Paz": "x84eirw",
     "ATB Cochabamba": "x89sfvo",
-    "ATB Santa Cruz": "x84t82c",
-    "Bolivia TV 7.1": "x9nzqpo",
-    "Bolivia TV 7.2": "x9ny70y",
-    "Red UNO SCZ": "x9n2qyk"
+    "ATB Santa Cruz": "x84t82c"
 }
 
 def obtener_m3u8(video_id):
@@ -36,7 +33,7 @@ def generar_m3u():
     contenido = "#EXTM3U\n"
     enlaces_encontrados = 0
     
-    for nombre, video_id in CANALES_BOL.items():
+    for nombre, video_id in CANALES_ATB.items():
         print(f"Buscando transmisión para: {nombre}...")
         url = obtener_m3u8(video_id)
         if url:
