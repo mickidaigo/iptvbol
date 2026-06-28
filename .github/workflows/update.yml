@@ -4,7 +4,7 @@ on:
   schedule:
     # Se ejecuta automáticamente cada 3 horas
     - cron: '0 */3 * * *'
-  workflow_dispatch: # Permite ejecutarlo manualmente desde la web de GitHub
+  workflow_dispatch: # Permite ejecutarlo manualmente desde la web de Usa el código con precaución.yamlGitHubUsa el código con precaución.yaml
 
 permissions:
   contents: write
@@ -12,6 +12,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Fuerza a las acciones antiguas a trabajar de forma nativa en Node 24 eliminando el aviso
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
     - name: Código de salida
       uses: actions/checkout@v4
@@ -29,7 +32,7 @@ jobs:
 
     - name: Guardar cambios y subir a GitHub
       run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.email "github-actions[bot]@://Usa el código con precaución.yamlgithub.comUsa el código con precaución.yaml"
         git config --local user.name "github-actions[bot]"
         git add lista.m3u
         git diff --quiet && git diff --staged --quiet || (git commit -m "Lista actualizada automáticamente" && git push)
